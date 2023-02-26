@@ -19,7 +19,13 @@ export default class Repository {
       tasks.push(new Task(taskName, "not yet implemented"));
       this.projects.set(projectName, tasks);
     } else {
-      this.projects.set(projectName, [new Task(taskName, "not yet implemented")]);
+      this.projects.set(projectName, [
+        new Task(taskName, "not yet implemented"),
+      ]);
     }
+  }
+
+  getTasks(projectName) {
+    return this.projects.get(projectName);
   }
 }

@@ -5,7 +5,7 @@ export default class UI {
   static selectedProject = "Shopping list";
 
   static initialize() {
-    UI.initButtons();
+    UI.initBindings();
   }
 
   static createProject() {
@@ -16,7 +16,26 @@ export default class UI {
     }
     UI.repository.addProject(name);
     const projects = document.getElementById("projects");
-    projects.innerHTML += `<li>${name}</li>`;
+    const projectNode = document.createElement("li");
+    projectNode.innerText = name;
+    projectNode.addEventListener("click", () => UI.selectProject(name));
+    projects.appendChild(projectNode);
+  }
+
+  static selectProject(projectName) {
+    UI.selectedProject = projectName;
+    const selectedProject = document.getElementById("selected-project");
+    selectedProject.innerText = UI.selectedProject;
+
+    const projects = document.getElementById("tasks");
+    projects.innerHTML = "";
+
+    const tasks = UI.repository.getTasks(projectName);
+    tasks.forEach((task) => {
+      const taskNode = document.createElement("li");
+      taskNode.innerText = task.getName();
+      projects.appendChild(taskNode);
+    });
   }
 
   static createTask() {
@@ -26,11 +45,16 @@ export default class UI {
     projects.innerHTML += `<li>${name}</li>`;
   }
 
-  static initButtons() {
+  static initBindings() {
     const addProjectBtn = document.getElementById("btn-add-project");
     addProjectBtn.addEventListener("click", UI.createProject);
 
     const addTaskBtn = document.getElementById("btn-add-task");
     addTaskBtn.addEventListener("click", UI.createTask);
+
+    const shoppingList = document.getElementById("project-shopping-list");
+    shoppingList.addEventListener("click", () =>
+      UI.selectProject("Shopping list")
+    );
   }
 }
