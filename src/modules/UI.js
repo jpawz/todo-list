@@ -9,8 +9,17 @@ export default class UI {
     projects.innerHTML += `<li>${name}</li>`;
   }
 
+  static createTask() {
+    const name = prompt("Task name:");
+    const projects = document.getElementById("tasks");
+    projects.innerHTML += `<li>${name}</li>`;
+  }
+
   static initButtons() {
     const addProjectBtn = document.getElementById("btn-add-project");
     addProjectBtn.addEventListener("click", UI.createProject);
+
+    const addTaskBtn = document.getElementById("btn-add-task");
+    addTaskBtn.addEventListener("click", UI.createTask);
   }
 }
