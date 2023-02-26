@@ -6,7 +6,7 @@ export default class Repository {
   }
 
   addProject(name) {
-    this.projects.set(name);
+    this.projects.set(name, []);
   }
 
   hasProject(name) {
@@ -15,11 +15,11 @@ export default class Repository {
 
   addTask(projectName, taskName) {
     if (this.projects.has(projectName)) {
-      this.projects
-        .get(projectName)
-        .put(new Task(taskName, "not yet implemented"));
+      const tasks = this.projects.get(projectName);
+      tasks.push(new Task(taskName, "not yet implemented"));
+      this.projects.set(projectName, tasks);
     } else {
-      this.projects.set(projectName, new Task(taskName, "not yet implemented"));
+      this.projects.set(projectName, [new Task(taskName, "not yet implemented")]);
     }
   }
 }

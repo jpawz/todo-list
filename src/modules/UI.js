@@ -2,6 +2,7 @@ import Repository from "./Repository";
 
 export default class UI {
   static repository = new Repository();
+  static selectedProject = "Shopping list";
 
   static initialize() {
     UI.initButtons();
@@ -20,6 +21,7 @@ export default class UI {
 
   static createTask() {
     const name = prompt("Task name:");
+    UI.repository.addTask(UI.selectedProject, name);
     const projects = document.getElementById("tasks");
     projects.innerHTML += `<li>${name}</li>`;
   }
