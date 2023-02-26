@@ -1,1 +1,3 @@
-console.log("Hello Todo List.");
+import UI from "./modules/UI";
+
+document.addEventListener("DOMContentLoaded", UI.initialize);
