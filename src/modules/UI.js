@@ -1,10 +1,19 @@
+import Repository from "./Repository";
+
 export default class UI {
+  static repository = new Repository();
+
   static initialize() {
     UI.initButtons();
   }
 
   static createProject() {
     const name = prompt("Project name:");
+    if (UI.repository.hasProject(name)) {
+      alert("Project already exists");
+      return;
+    }
+    UI.repository.addProject(name);
     const projects = document.getElementById("projects");
     projects.innerHTML += `<li>${name}</li>`;
   }
