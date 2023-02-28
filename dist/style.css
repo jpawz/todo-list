@@ -1,9 +1,27 @@
+html {
+  height: 100vh;
+}
 body {
-    display: flex;
-    flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
 }
 
 main {
-    display: flex;
-    flex-direction: row;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+footer {
+  margin-top: auto;
+  justify-self: center;
+}
+
+#tasks {
+    width: 40vw;
+}
+
+#tasks > li {
+    display: grid;
+    grid-template-columns: 1fr auto;
 }

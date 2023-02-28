@@ -45,7 +45,7 @@ export default class UI {
 
     UI.repository.addTaskToProject(UI.selectedProject, new Task(name, dueDate));
     const projects = document.getElementById("tasks");
-    projects.innerHTML += `<li>${name} ${dueDate}</li>`;
+    projects.innerHTML += `<li><span>${name}</span><span>${dueDate}<span></li>`;
   }
 
   static initBindings() {
