@@ -9,7 +9,7 @@ export default class UI {
   }
 
   static createProject() {
-    const name = prompt("Project name:");
+    const name = document.getElementById("new-project-name").value;
     if (UI.repository.hasProject(name)) {
       alert("Project already exists");
       return;
