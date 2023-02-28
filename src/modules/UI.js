@@ -34,7 +34,7 @@ export default class UI {
     const tasks = UI.repository.getTasks(projectName);
     tasks.forEach((task) => {
       const taskNode = document.createElement("li");
-      taskNode.innerText = task.getName();
+      taskNode.innerHTML += `<span>${task.getName()}</span><span>${task.getDueDate()}<span>`;
       projects.appendChild(taskNode);
     });
   }
