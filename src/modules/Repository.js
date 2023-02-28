@@ -1,5 +1,3 @@
-import Task from "./Task";
-
 export default class Repository {
   constructor() {
     this.projects = new Map();
@@ -13,15 +11,13 @@ export default class Repository {
     return this.projects.has(name);
   }
 
-  addTask(projectName, taskName) {
+  addTaskToProject(projectName, task) {
     if (this.projects.has(projectName)) {
       const tasks = this.projects.get(projectName);
-      tasks.push(new Task(taskName, "not yet implemented"));
+      tasks.push(task);
       this.projects.set(projectName, tasks);
     } else {
-      this.projects.set(projectName, [
-        new Task(taskName, "not yet implemented"),
-      ]);
+      this.projects.set(projectName, [task]);
     }
   }
 

@@ -1,4 +1,5 @@
 import Repository from "./Repository";
+import Task from "./Task";
 
 export default class UI {
   static repository = new Repository();
@@ -39,10 +40,12 @@ export default class UI {
   }
 
   static createTask() {
-    const name = prompt("Task name:");
-    UI.repository.addTask(UI.selectedProject, name);
+    const name = document.getElementById("new-task-name").value;
+    const dueDate = document.getElementById("new-task-date").value;
+
+    UI.repository.addTaskToProject(UI.selectedProject, new Task(name, dueDate));
     const projects = document.getElementById("tasks");
-    projects.innerHTML += `<li>${name}</li>`;
+    projects.innerHTML += `<li>${name} ${dueDate}</li>`;
   }
 
   static initBindings() {
