@@ -19,8 +19,8 @@ export default class UI {
     const projects = document.getElementById("projects");
     const projectNode = document.createElement("li");
     projectNode.innerText = name;
-    projectNode.addEventListener("click", () => UI.selectProject(name));
     projects.appendChild(projectNode);
+    UI.initProjectsBindings();
   }
 
   static selectProject(projectName) {
@@ -55,9 +55,11 @@ export default class UI {
     const addTaskBtn = document.getElementById("btn-add-task");
     addTaskBtn.addEventListener("click", UI.createTask);
 
-    const shoppingList = document.getElementById("project-shopping-list");
-    shoppingList.addEventListener("click", () =>
-      UI.selectProject("Shopping list")
-    );
+    UI.initProjectsBindings();
+  }
+
+  static initProjectsBindings() {
+    const tasksElements = document.getElementById("projects").querySelectorAll("li");
+    tasksElements.forEach(task => task.addEventListener("click", () => UI.selectProject(task.innerText)))
   }
 }
