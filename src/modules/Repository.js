@@ -22,6 +22,20 @@ export default class Repository {
   }
 
   getTasks(projectName) {
-    return this.projects.get(projectName);
+    if (this.projects.get(projectName)) {
+      return this.projects.get(projectName);
+    } else {
+      return [];
+    }
+  }
+
+  switchTaskDone(projectName, taskId) {
+    const tasks = this.projects.get(projectName);
+    tasks.forEach((task) => {
+      if (task.getId() == taskId) {
+        task.setDone(!task.getDone());
+      }
+    });
+    this.projects.set(projectName, tasks);
   }
 }
