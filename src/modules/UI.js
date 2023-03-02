@@ -49,7 +49,7 @@ export default class UI {
 
     UI.repository.addTaskToProject(UI.selectedProject, new Task(taskNameInput.value, dueDate));
     const projects = document.getElementById("tasks");
-    projects.innerHTML += `<li><span>${taskNameInput.value}</span><span>${dueDate}<span></li>`;
+    projects.innerHTML += `<li><span><input type="checkbox">${taskNameInput.value}</span><span>${dueDate}<span></li>`;
     taskNameInput.value = "";
   }
 
