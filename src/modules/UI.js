@@ -11,16 +11,17 @@ export default class UI {
   }
 
   static createProject() {
-    const name = document.getElementById("new-project-name").value;
-    if (UI.repository.hasProject(name)) {
+    const addProjectInput = document.getElementById("new-project-name");
+    if (UI.repository.hasProject(addProjectInput.value)) {
       alert("Project already exists");
       return;
     }
-    UI.repository.addProject(name);
+    UI.repository.addProject(addProjectInput.value);
     const projects = document.getElementById("projects");
     const projectNode = document.createElement("li");
-    projectNode.innerText = name;
+    projectNode.innerText = addProjectInput.value;
     projects.appendChild(projectNode);
+    addProjectInput.value = "";
     UI.initProjectsBindings();
   }
 
@@ -41,12 +42,13 @@ export default class UI {
   }
 
   static createTask() {
-    const name = document.getElementById("new-task-name").value;
+    const taskNameInput = document.getElementById("new-task-name");
     const dueDate = document.getElementById("new-task-date").value;
 
-    UI.repository.addTaskToProject(UI.selectedProject, new Task(name, dueDate));
+    UI.repository.addTaskToProject(UI.selectedProject, new Task(taskNameInput.value, dueDate));
     const projects = document.getElementById("tasks");
-    projects.innerHTML += `<li><span>${name}</span><span>${dueDate}<span></li>`;
+    projects.innerHTML += `<li><span>${taskNameInput.value}</span><span>${dueDate}<span></li>`;
+    taskNameInput.value = "";
   }
 
   static initBindings() {
