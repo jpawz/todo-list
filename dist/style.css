@@ -5,6 +5,9 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100%;
+  background-color: rgb(120 113 108);
+  color: rgb(41 37 36);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 main {
@@ -17,11 +20,62 @@ footer {
   justify-self: center;
 }
 
+input {
+  background: rgb(168 162 158);
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  padding: 5px 15px;
+}
+
+button {
+  border-radius: 50px;
+  border: none;
+  background: rgb(168 162 158);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 #tasks {
-    width: 40vw;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 15px;
+  padding: 0px;
 }
 
 #tasks > li {
-    display: grid;
-    grid-template-columns: 1fr auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+#new-task-name {
+  width: 100%;
+}
+
+ul#projects {
+  list-style: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+
+ul#projects > li {
+  background-color: rgb(41 37 36);
+  margin: 5px 15px;
+  padding: 5px 15px;
+  border-radius: 50px;
+  color: rgb(120 113 108);
+}
+
+.add-task-inputs,
+.add-project-inputs {
+  display: flex;
+  gap: 10px;
+  margin: 15px;
+}
+
+.main-container {
+  width: 40vw;
+  margin-left: 30px;
 }

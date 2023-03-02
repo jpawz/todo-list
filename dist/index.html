@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <h1>ToDo List App</h1>
+        <h1>✔ ToDo List App</h1>
     </header>
     <main>
         <nav>
@@ -21,8 +21,10 @@
                 <li>All</li>
                 <li>Shopping list</li>
             </ul>
-            <input type="text" id="new-project-name">
-            <button id="btn-add-project">Add project</button>
+            <span class="add-project-inputs">
+                <input type="text" id="new-project-name">
+                <button id="btn-add-project">➕</button>
+            </span>
 
         </nav>
         <div class="main-container" id="main-container">
@@ -30,9 +32,11 @@
             <ul id="tasks">
 
             </ul>
-            <input type="text" id="new-task-name">
-            <input type="date" id="new-task-date">
-            <button id="btn-add-task">Add task</button>
+            <span class="add-task-inputs">
+                <input type="text" id="new-task-name">
+                <input type="date" id="new-task-date">
+                <button id="btn-add-task">➕</button>
+            </span>
         </div>
     </main>
     <footer>
