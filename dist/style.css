@@ -28,12 +28,17 @@ input {
   padding: 5px 15px;
 }
 
+input:focus {
+  outline: none;
+}
+
 button {
   border-radius: 50px;
   border: none;
   background: rgb(168 162 158);
   font-size: 1.5rem;
   font-weight: bold;
+  margin-left: 5px;
 }
 
 #tasks {
@@ -68,7 +73,11 @@ ul#projects > li {
   color: rgb(120 113 108);
 }
 
-.add-task-inputs,
+.add-task-inputs {
+  display: grid;
+  grid-template-columns: auto max-content max-content;
+}
+
 .add-project-inputs {
   display: flex;
   gap: 10px;
