@@ -7,6 +7,7 @@ export default class UI {
 
   static initialize() {
     UI.initBindings();
+    UI.selectProject(UI.selectedProject);
   }
 
   static createProject() {
