@@ -34,7 +34,10 @@ export default class UI {
     const projects = document.getElementById("tasks");
     projects.innerHTML = "";
 
-    const tasks = UI.repository.getTasks(projectName);
+    const tasks =
+      projectName == "All"
+        ? UI.repository.getAllTasks()
+        : UI.repository.getTasks(projectName);
     tasks.forEach((task) => {
       const taskNode = document.createElement("li");
       taskNode.innerHTML += `<span><input type="checkbox" id="${task.getId()}" ${
@@ -43,6 +46,7 @@ export default class UI {
       projects.appendChild(taskNode);
     });
     UI.initTasksBindings();
+    UI.repository.getAllTasks();
   }
 
   static createTask() {

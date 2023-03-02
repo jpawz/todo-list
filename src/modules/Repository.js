@@ -38,4 +38,14 @@ export default class Repository {
     });
     this.projects.set(projectName, tasks);
   }
+
+  getAllTasks() {
+    const allTasks = [];
+
+    for (const tasks of this.projects.values()) {
+      allTasks.push(...tasks);
+    }
+
+    return allTasks;
+  }
 }
