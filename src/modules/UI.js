@@ -12,6 +12,7 @@ export default class UI {
 
   static createProject() {
     const addProjectInput = document.getElementById("new-project-name");
+    if(!addProjectInput.value) return;
     if (UI.repository.hasProject(addProjectInput.value)) {
       alert("Project already exists");
       return;
@@ -43,6 +44,7 @@ export default class UI {
 
   static createTask() {
     const taskNameInput = document.getElementById("new-task-name");
+    if(!taskNameInput.value) return;
     const dueDate = document.getElementById("new-task-date").value;
 
     UI.repository.addTaskToProject(UI.selectedProject, new Task(taskNameInput.value, dueDate));
