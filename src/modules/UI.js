@@ -54,7 +54,7 @@ export default class UI {
     if (!taskNameInput.value) return;
     const dueDate = document.getElementById("new-task-date").value;
 
-    const newTask = new Task(taskNameInput.value, dueDate);
+    const newTask = new Task(taskNameInput.value, dueDate, false);
     UI.repository.addTaskToProject(UI.selectedProject, newTask);
     const projects = document.getElementById("tasks");
     projects.innerHTML += `<li><span><input type="checkbox" id="${newTask.getId()}">${
