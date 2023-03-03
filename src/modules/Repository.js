@@ -17,7 +17,6 @@ export default class Repository {
           new Task(task.name, task.dueDate, task.done, task.id)
         )
       );
-      // this.projects.set(projectName, tasks);
     }
   }
 
@@ -36,6 +35,12 @@ export default class Repository {
 
   hasProject(name) {
     return this.projects.has(name);
+  }
+
+  getProjectsNames() {
+    const names = [];
+    this.projects.forEach((k, v) => names.push(v));
+    return names;
   }
 
   addTaskToProject(projectName, task) {
